@@ -5,41 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Comissao</title>
     <style>
-        body{
+        body {
             background-color: aquamarine;
             font-family: sans-serif;
             text-align: center;
         }
      
-        h1{
+        h1 {
             color: rgb(255, 176, 31);
         }
         
-        
-        h1,p{
+        h1, p {
             text-align: center;
         }
-       section{border-radius: 5px;
-        padding: 10px;
-        background-color: aliceblue;
-        width: 300px;
-        max-height: 350px;
-        margin: auto;
-        box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.432);
-    
-       }
-       #calculo{
-        display: none;
-        margin-top: 100px;
-       }
-      #login{
-        margin-left: 1.5em;
-      }
-     
-   
-       #venda{
-        margin: 1.5em;
-       }
+
+        section {
+            border-radius: 5px;
+            padding: 10px;
+            background-color: aliceblue;
+            width: 300px;
+            max-height: 350px;
+            margin: auto;
+            box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.432);
+        }
+        
+        #calculo {
+            display: none;
+            margin-top: 100px;
+        }
+      
+        #login {
+            margin-left: 1.5em;
+        }
+      
+        #venda {
+            margin: 1.5em;
+        }
     </style>
 </head>
 <body>
@@ -47,18 +48,17 @@
         <header><h1>Calcule sua comissão</h1></header>
 
         <section>
-            <p id="fistp">Faça login!</p>
-             <p> coloque seu ID</p>
-             <div id="login">
+            <p id="firstp">Faça login!</p>
+            <p>Coloque seu ID</p>
+            <div id="login">
                 <input type="number" id="nn">
-                <input type="button" value="enviar" onclick="fazer()">
+                <input type="button" value="enviar" onclick="fazerLogin()">
             </div>
-        
 
             <div id="calculo">
                 <p>Qual foi o valor da venda?</p>
                 <div id="venda">
-                    <input type="number" id="valor">
+                    <input type="number" id="valorVenda">
                     <input type="button" value="calcular" onclick="calcularComissao()">
                 </div>
                 <div id="res"></div>
@@ -66,42 +66,26 @@
         </section>
 
         <script>
-            var local = document.querySelector("#calculo")
-            var l = (local.value)
-            let caua = 1234
-            let jefinho = 1423 
-            function fazer(){
-                var id = document.querySelector('#nn')
-                var a = (id.value)
-                if(caua == a){
-                    alert("O LOGIN FOI CONFIRMADO")
-                    document.getElementById('calculo').style.display = 'block'
-                    function calcularComissao() {
-                     inputValor = document.querySelector('#valor');
-                     valor = Number(inputValor.value);
-                    var resultado = valor * 0.05;
-                    var res = document.querySelector('#res');
-                    res.innerHTML = `O valor da sua comissão pela venda de ${valor} é de ${resultado}`;
-}
-                }
+            var caua = 1234;
+            var jefinho = 1423;
 
-
-        
-        if(a == jefinho){
-                    alert("O LOGIN FOI CONFIRMADO")
-                    document.getElementById('calculo').style.display = 'block'
-                    function calcularComissao() {
-                    inputValor = document.querySelector('#valor');
-                    valor = Number(inputValor.value);
-                    var resultado = valor * 0.05;
-                    var res = document.querySelector('#res');
-                    res.innerHTML = `O valor da sua comissão pela venda de ${valor} é de ${resultado}`;
-
-}
+            function fazerLogin() {
+                var id = document.querySelector('#nn');
+                var a = Number(id.value);
                 
-}}
+                if (a === caua || a === jefinho) {
+                    alert("O LOGIN FOI CONFIRMADO");
+                    document.getElementById('calculo').style.display = 'block';
+                }
+            }
 
-            
+            function calcularComissao() {
+                var inputValor = document.querySelector('#valorVenda');
+                var valor = Number(inputValor.value);
+                var resultado = valor * 0.05;
+                var res = document.querySelector('#res');
+                res.innerHTML = `O valor da sua comissão pela venda de ${valor} é de ${resultado}`;
+            }
         </script>
     </main>
 </body>
